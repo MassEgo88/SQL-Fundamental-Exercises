@@ -1,0 +1,76 @@
+---Query 1: Viewing first 10 raws of the table employees 
+SELECT * 
+FROM `workspace`.`default`.`employees_1` 
+LIMIT 10;
+
+
+---Query 2: COUNT() the number of employees
+SELECT COUNT(id) AS number_employees
+FROM `workspace`.`default`.`employees_1`;
+
+
+---Query 3: Total salary paid to employees in the IT department
+SELECT SUM(salary) AS total_salary
+FROM `workspace`.`default`.`employees_1`
+WHERE department = 'IT';
+
+
+---Query 4: Calculate the AVG salary in the HR department
+SELECT AVG(salary) AS average_salary
+FROM `workspace`.`default`.`employees_1`
+WHERE department = 'HR';
+
+
+---Query 5: find the highest and the lowerst salary in the company
+SELECT MAX(salary) AS highest_salary,
+       MIN(salary) AS lowest_salary
+FROM `workspace`.`default`.`employees_1`;
+
+
+---Query 6: Group employees by department and total salary in each department
+SELECT department,
+       SUM(salary) AS total_salary
+FROM `workspace`.`default`.`employees_1`
+GROUP BY department;
+
+
+---Query 7: Count how many employees in each city
+SELECT city,
+       COUNT(id) AS number_employees
+FROM `workspace`.`default`.`employees_1`
+GROUP BY city;
+
+
+---Query 8: Group employees by department and calculate avg salary in each departmen, order the results in decending order
+SELECT department,
+       AVG(salary) AS average_salary
+FROM `workspace`.`default`.`employees_1`
+GROUP BY department
+ORDER BY average_salary DESC;
+
+
+---Query 9: Find the department where the total salary paid exeeds 100 00(HAVING CLAUSE)
+SELECT department,
+       SUM(salary) AS total_salary
+FROM `workspace`.`default`.`employees_1`
+GROUP BY department
+HAVING total_salary > 100000;
+
+
+---Query 10: List cities where more than one employee works, ordered by the number of employees in decending order
+SELECT city,
+       COUNT(id) AS number_of_employees
+FROM `workspace`.`default`.`employees_1`
+GROUP BY city
+HAVING number_of_employees > 1
+ORDER BY number_of_employees DESC;
+
+
+---Query 11: Find the department with the highest average salary
+SELECT department,
+       AVG(salary) AS average_salary
+FROM `workspace`.`default`.`employees_1`
+GROUP BY department
+ORDER BY average_salary DESC
+LIMIT 1;
+
