@@ -17,7 +17,7 @@ WHERE Statements
 
 The SELECT statement allows me to specify the columns that we want from a specific table.
 The FROM statement I specify the name of the database.schema.table-name.
-THE Filtering statement is where i filter rows, it also allows me to specify conditions in order to filter rows in a table.
+The Filtering statement is where i filter rows, it also allows me to specify conditions in order to filter rows in a table.
 The Aggregation combines data into groups and it summarizes my data. 
 *SUM()
 *COUNT()
